@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+        
+    <link rel="stylesheet" href="Les préférés d'Alex.css"/>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeu de Devinettes de Nombre</title>
+<style>
+    body {
+        text-align: center;
+    }
+</style>
+</head>
+<h1><center>Les préférés d'Alex</center></h1>
+<div class="topnav">
+    <a class="active" href="Les préférés d'Alex.html">Accueil</a>
+    <a href="BreakingBad.html">Breaking Bad</a>
+    <a href="HXH.html">Hunter X Hunter</a>
+    <a href="SitesD'Intérêts.html">Sites D'intérêts</a>
+    <a href="JeuV2.html">Mini-Jeu</a>
+    <a href="FAQ.html">FAQ</a>
+    <a href="ÀPropos.html">À Propos</a>
+  </div>
+<body>
+
+<h2>Jeu de Devinettes de Nombre</h2>
+<title>Les préférés d'Alex</title>
+<p>Devinez un nombre entre 1 et 100 :</p>
+<input type="number" id="guessInput" min="1" max="100">
+<button onclick="checkGuess()">Devinez</button>
+<p id="message"></p>
+
+<script>
+    
+    const randomNumber = Math.floor(Math.random() * 100) + 1;
+    let numberOfTries = 0;
+
+    function checkGuess() {
+        numberOfTries++;
+        const guess = parseInt(document.getElementById("guessInput").value);
+        const messageElement = document.getElementById("message");
+
+        if (isNaN(guess) || guess < 1 || guess > 100) {
+            messageElement.textContent = "Veuillez entrer un nombre valide entre 1 et 100.";
+        } else if (guess === randomNumber) {
+            messageElement.textContent = `BRAVO! Vous avez trouvé le juste prix! Nombre de tentatives : ${numberOfTries}`;
+        } else if (guess < randomNumber) {
+            messageElement.textContent = "Trop bas ! Essayez encore.";
+        } else {
+            messageElement.textContent = "Trop haut ! Essayez encore.";
+        }
+    }
+</script>
+
+</body>
+<footer><center><pre>Vous pouvez me contacter par courriel au <a href="mailto:lafontainea@csdmedu.ca">lafontainea@csdmedu.ca</a> 
+    ou par téléphone au 514-555-0131
+    (Chrome, Opéra, Safari, Edge et FireFox)
+    <a href="PlanDuSite.html">Plan du site</a>
+    <a href="https://www.facebook.com/?locale=fr_CA"><img width=15px height="15px" src="facebook.png"></a></pre></center></footer>
+</html>
